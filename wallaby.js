@@ -3,11 +3,11 @@ var babel = require('babel');
 module.exports = function (wallaby) {
     return {
         "files": [
-            "app/*.js",
-            "!app/*spec.js"
+            "app/**/*.js",
+            "!app/**/*spec.js"
         ],
         "tests": [
-            "app/*spec.js"
+            "app/**/*spec.js"
         ],
 
         compilers: {

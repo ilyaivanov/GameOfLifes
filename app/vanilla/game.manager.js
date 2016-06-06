@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    setBoard();
-    setInterval(setBoard, 1000);
+    // setBoard();
+    // setInterval(setBoard, 1000);
 });
 
 
 function setBoard() {
     var board = [
+        [0,0,0,0,0,0,0,1,0,0],
+        [0,0,0,0,0,0,0,1,0,1],
+        [0,0,0,0,0,0,0,1,1,0],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,1,0,0,0,0,0],
-        [0,0,0,0,1,1,0,0,0,0],
-        [0,0,0,0,1,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0]
     ];
-    
+
     var box = document.getElementById("box");
     clearNode(box);
     for (var i = 0; i < 10; i++) {
