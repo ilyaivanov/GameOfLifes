@@ -1,0 +1,31 @@
+.cell
+{
+    float: left;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    height: 9px;
+    width: 9px;
+}
+
+.full{
+    background-color: black;
+}
+
+#box
+{
+    margin: 0px auto 30px;
+    overflow: hidden;
+    padding-bottom: 1px;
+    background-color: #fff;
+    width: 90px; /*re-calculate at runtime*/
+    visibility: visible;
+    border: 1px solid #777;
+
+}
+
+#maze
+{
+    overflow: hidden;
+}
