@@ -9,7 +9,18 @@
 <div id="box">
 
 </div>
-
+<script src="../core/core.js"></script>
 <script src="game.manager.js"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        var box = document.getElementById("box");
+        setBoard(box);
+        setInterval(function () {
+            setBoard(box);
+        }, 1000);
+    });
+</script>
 </body>
 </html>

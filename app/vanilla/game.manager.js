@@ -1,27 +1,23 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-    // setBoard();
-    // setInterval(setBoard, 1000);
-});
+var board = [
+    [0,0,0,0,0,0,0,1,0,0],
+    [0,0,0,0,0,0,0,1,0,1],
+    [0,0,0,0,0,0,0,1,1,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0]
+];
 
+function setBoard(boxElement) {
+    board = getNextBoard(board);
 
-function setBoard() {
-    var board = [
-        [0,0,0,0,0,0,0,1,0,0],
-        [0,0,0,0,0,0,0,1,0,1],
-        [0,0,0,0,0,0,0,1,1,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0]
-    ];
-
-    var box = document.getElementById("box");
-    clearNode(box);
+    clearNode(boxElement);
     for (var i = 0; i < 10; i++) {
         var row = createRow(board[i]);
-        box.appendChild(row);
+        boxElement.appendChild(row);
     }
 
     function createRow(row) {
