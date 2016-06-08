@@ -18,16 +18,27 @@ function getNextBoard(board) {
 }
 
 function getNeightboursCount(board, row, column) {
+    var length = board.length;
     var neighbours =
-        (row > 0 && column > 0 ? board[row - 1][column - 1] : 0 ) +
-        (row > 0 && column < board.length - 1 ? board[row - 1][column + 1] : 0 ) +
-        (row > 0 ? board[row - 1][column] : 0 ) +
-        (column > 0 ? board[row][column - 1] : 0) +
-        (column < board.length - 1 ? board[row][column + 1] : 0) +
-        (row < board.length - 1 && column > 0 ? board[row + 1][column - 1] : 0) +
-        (row < board.length - 1 && column < board.length - 1 ? board[row + 1][column + 1] : 0) +
-        (row < board.length - 1 ? board[row + 1][column] : 0);
+        board[getLowerIndex(row, length)][getLowerIndex(column, length)] +
+        board[getLowerIndex(row, length)][getUpperIndex(column, length)] +
+        board[getLowerIndex(row, length)][column] +
+        board[row][getLowerIndex(column, length)] +
+        board[row][getUpperIndex(column, length)] +
+        board[getUpperIndex(row, length)][getLowerIndex(column, length)] +
+        board[getUpperIndex(row, length)][getUpperIndex(column, length)] +
+        board[getUpperIndex(row, length)][column];
     return neighbours;
-
-
 }
+
+function getLowerIndex(currentIndex, length) {
+    return currentIndex == 0 ? length - 1 : currentIndex - 1;
+}
+
+function getUpperIndex(currentIndex, length) {
+    return currentIndex >= length - 1 ? 0 : currentIndex + 1;
+}
+
+
+//todo: isolate getNeightboursCount from getNextBoard
+//unit test them separately
