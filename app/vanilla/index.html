@@ -16,10 +16,11 @@
 <script>
     document.addEventListener("DOMContentLoaded", function (event) {
         var box = document.getElementById("box");
+        box.style.width = ((board.length-1) * 10) + 'px';
         setBoard(box);
         setInterval(function () {
             setBoard(box);
-        }, 300);
+        }, 100);
     });
 </script>
 </body>
