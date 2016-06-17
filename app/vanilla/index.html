@@ -7,40 +7,15 @@
 </head>
 <body>
 <div>
-    Interval <input id="internalInput" type="number" value="100">
+    Interval <input id="internalInput" type="number" value="100"> (ms)
 </div>
 <div id="box">
 
 </div>
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"
-        integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
-
+<script src="../../node_modules/jquery/dist/jquery.js"></script>
 <script src="../core/core.js"></script>
-<script src="game.manager.js"></script>
+<script src="view.js"></script>
+<script src="game.js"></script>
 
-
-<script>
-    $(function () {
-
-        var boxElement = $("#box");
-        boxElement.css('width', ((board.length - 1) * 10) + 'px');
-
-        var intervalInputElement =$("#internalInput");
-        intervalInputElement.keyup(updateInterval);
-
-        var refreshIntervalId = 0;
-        function updateInterval(){
-            if(refreshIntervalId != 0){
-                clearInterval(refreshIntervalId);
-            }
-
-            refreshIntervalId = setInterval(function () {
-                setBoard(boxElement);
-            }, intervalInputElement.val());
-        }
-
-        updateInterval();
-    });
-</script>
 </body>
 </html>

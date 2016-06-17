@@ -1,8 +1,7 @@
 {
-  "name": "wallaby-sandbox",
+  "name": "gameoflife",
   "version": "1.0.0",
   "description": "Sandbox project for wallaby with ES6",
-  "main": "wallaby.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,8 +10,7 @@
     "url": "git+https://github.com/ilyaivanov/wallaby-sandbox.git"
   },
   "keywords": [
-    "wallaby",
-    "ES6"
+    "Game Of Life"
   ],
   "author": "Ilya Ivanov",
   "license": "MIT",
@@ -22,5 +20,8 @@
   "homepage": "https://github.com/ilyaivanov/wallaby-sandbox#readme",
   "devDependencies": {
     "babel": "^5.8.23"
+  },
+  "dependencies": {
+    "jquery": "^3.0.0"
   }
 }
