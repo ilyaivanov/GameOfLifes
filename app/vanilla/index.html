@@ -20,13 +20,13 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
+    $(function () {
 
-        var box = document.getElementById("box");
-        box.style.width = ((board.length - 1) * 10) + 'px';
+        var boxElement = $("#box");
+        boxElement.css('width', ((board.length - 1) * 10) + 'px');
 
-
-        $("#internalInput").keyup(updateInterval);
+        var intervalInputElement =$("#internalInput");
+        intervalInputElement.keyup(updateInterval);
 
         var refreshIntervalId = 0;
         function updateInterval(){
@@ -35,8 +35,8 @@
             }
 
             refreshIntervalId = setInterval(function () {
-                setBoard(box);
-            }, $("#internalInput").val());
+                setBoard(boxElement);
+            }, intervalInputElement.val());
         }
 
         updateInterval();

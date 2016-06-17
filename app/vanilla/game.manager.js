@@ -14,10 +14,10 @@ var board = [
 function setBoard(boxElement) {
     board = getNextBoard(board);
 
-    clearNode(boxElement);
+    boxElement.empty();
     for (var i = 0; i < 10; i++) {
         var row = createRow(board[i]);
-        boxElement.appendChild(row);
+        boxElement.append(row);
     }
 
     function createRow(row) {
@@ -35,11 +35,4 @@ function setBoard(boxElement) {
         }
         return rowElement;
     }
-
-    function clearNode(node){
-        while (node.firstChild) {
-            node.removeChild(node.firstChild);
-        }
-    }
 }
-
