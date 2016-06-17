@@ -6,21 +6,40 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div>
+    Interval <input id="internalInput" type="number" value="100">
+</div>
 <div id="box">
 
 </div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"
+        integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+
 <script src="../core/core.js"></script>
 <script src="game.manager.js"></script>
 
 
 <script>
     document.addEventListener("DOMContentLoaded", function (event) {
+
         var box = document.getElementById("box");
-        box.style.width = ((board.length-1) * 10) + 'px';
-        setBoard(box);
-        setInterval(function () {
-            setBoard(box);
-        }, 100);
+        box.style.width = ((board.length - 1) * 10) + 'px';
+
+
+        $("#internalInput").keyup(updateInterval);
+
+        var refreshIntervalId = 0;
+        function updateInterval(){
+            if(refreshIntervalId != 0){
+                clearInterval(refreshIntervalId);
+            }
+
+            refreshIntervalId = setInterval(function () {
+                setBoard(box);
+            }, $("#internalInput").val());
+        }
+
+        updateInterval();
     });
 </script>
 </body>
