@@ -18,8 +18,8 @@ var board = [
 function setBoard(boxElement) {
     board = getNextBoard(board);
 
+    //TODO: extract
     boxElement.empty();
-
     view.render(board, boxElement);
 }
 
@@ -45,6 +45,28 @@ $(function () {
     });
     var refreshIntervalId = 0;
 
+    $("#box").on('mouseup', function (event) {
+        if (!gameIsRunning) {
+            var cellCoordinates = getCellCoordinatesByIndex(board, $(event.target).index());
+            if (board[cellCoordinates.x][cellCoordinates.y]) {
+                board[cellCoordinates.x][cellCoordinates.y] = 0
+            } else {
+                board[cellCoordinates.x][cellCoordinates.y] = 1;
+            }
+            //TODO: extract
+            boxElement.empty();
+            view.render(board, boxElement);
+        }
+    });
+
+    function getCellCoordinatesByIndex(array, position) {
+        var width = array[0].length;
+        return {
+            x: Math.floor(position / width),
+            y: position % width
+        };
+    }
+
     function updateInterval() {
         if (refreshIntervalId != 0) {
             clearInterval(refreshIntervalId);
@@ -57,5 +79,5 @@ $(function () {
         }, intervalInputElement.val());
     }
 
-    setBoard(boxElement);
+    view.render(board, boxElement);
 });
