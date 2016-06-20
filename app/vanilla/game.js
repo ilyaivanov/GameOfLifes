@@ -9,6 +9,9 @@ var board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
@@ -19,7 +22,6 @@ function setBoard(boxElement) {
 
     view.render(board, boxElement);
 }
-
 
 $(function () {
 
@@ -37,7 +39,9 @@ $(function () {
         }
 
         refreshIntervalId = setInterval(function () {
+            var now = performance.now();
             setBoard(boxElement);
+            $('#frameRate').text((performance.now() - now).toFixed(2));
         }, intervalInputElement.val());
     }
 

@@ -4,6 +4,7 @@ module.exports = function (wallaby) {
     return {
         "files": [
             "app/**/*.js",
+            "!app/**/*game.js",
             "!app/**/*spec.js"
         ],
         "tests": [

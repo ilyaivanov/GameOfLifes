@@ -6,7 +6,7 @@ var view = (function () {
         }
 
         function appendRow(row, element) {
-            for (var i = 0; i < board.length; i++) {
+            for (var i = 0; i < row.length; i++) {
                 var newCell = document.createElement('div');
                 var className = "cell";
                 if (row[i])

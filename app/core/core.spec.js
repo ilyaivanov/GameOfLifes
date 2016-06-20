@@ -85,6 +85,20 @@ describe("Havign a Game", function () {
                   expect(getNeightboursCount(board, 1, 2)).toEqual(3);
             });
         });
+        describe('non-square board', function () {
+            var board = [
+                [0],
+                [0],
+                [0]
+            ];
+            var nextBoard = getNextBoard(board);
+            it('should get exact same dimesntions', function () {
+                expect(nextBoard.length).toEqual(3);
+                expect(nextBoard[0].length).toEqual(1);
+                expect(nextBoard[1].length).toEqual(1);
+                expect(nextBoard[2].length).toEqual(1);
+            });
+        });
     });
 
     describe('getting index for a zero position', function () {

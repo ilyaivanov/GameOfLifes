@@ -19,14 +19,15 @@ function getNextBoard(board) {
 
 function getNeightboursCount(board, row, column) {
     var length = board.length;
+    var rowLength = board[row].length;
     var neighbours =
-        board[getLowerIndex(row, length)][getLowerIndex(column, length)] +
-        board[getLowerIndex(row, length)][getUpperIndex(column, length)] +
+        board[getLowerIndex(row, length)][getLowerIndex(column, rowLength)] +
+        board[getLowerIndex(row, length)][getUpperIndex(column, rowLength)] +
         board[getLowerIndex(row, length)][column] +
-        board[row][getLowerIndex(column, length)] +
-        board[row][getUpperIndex(column, length)] +
-        board[getUpperIndex(row, length)][getLowerIndex(column, length)] +
-        board[getUpperIndex(row, length)][getUpperIndex(column, length)] +
+        board[row][getLowerIndex(column, rowLength)] +
+        board[row][getUpperIndex(column, rowLength)] +
+        board[getUpperIndex(row, length)][getLowerIndex(column, rowLength)] +
+        board[getUpperIndex(row, length)][getUpperIndex(column, rowLength)] +
         board[getUpperIndex(row, length)][column];
     return neighbours;
 }
