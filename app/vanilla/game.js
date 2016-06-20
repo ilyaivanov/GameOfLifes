@@ -26,11 +26,23 @@ function setBoard(boxElement) {
 $(function () {
 
     var boxElement = $("#box");
+    var gameIsRunning = false;
     boxElement.css('width', board[0].length * 12 + 'px');
 
     var intervalInputElement = $("#internalInput");
     intervalInputElement.keyup(updateInterval);
 
+
+    $("#startButton").click(function () {
+        if (gameIsRunning) {
+            clearInterval(refreshIntervalId);
+            $("#startButton").text("Start")
+        } else {
+            updateInterval();
+            $("#startButton").text("Stop")
+        }
+        gameIsRunning = !gameIsRunning;
+    });
     var refreshIntervalId = 0;
 
     function updateInterval() {
@@ -45,5 +57,5 @@ $(function () {
         }, intervalInputElement.val());
     }
 
-    updateInterval();
+    setBoard(boxElement);
 });
