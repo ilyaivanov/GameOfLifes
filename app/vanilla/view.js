@@ -1,13 +1,12 @@
 var view = (function () {
     function render(board, element){
-        for (var i = 0; i < 10; i++) {
-            var row = createRow(board[i]);
+        for (var i = 0; i < board.length; i++) {
+            var row = appendRow(board[i], element);
             element.append(row);
         }
 
-        function createRow(row) {
-            var rowElement = document.createElement('div');
-            for (var i = 0; i < 10; i++) {
+        function appendRow(row, element) {
+            for (var i = 0; i < board.length; i++) {
                 var newCell = document.createElement('div');
                 var className = "cell";
                 if (row[i])
@@ -16,9 +15,8 @@ var view = (function () {
                 }
                 newCell.className = className;
 
-                rowElement.appendChild(newCell);
+                element.append(newCell);
             }
-            return rowElement;
         }
     }
     return {
