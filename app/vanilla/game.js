@@ -27,7 +27,7 @@ $(function () {
 
     var boxElement = $("#box");
     var gameIsRunning = false;
-    boxElement.css('width', board[0].length * 12 + 'px');
+    $(".game").css('width', board[0].length * 10 + 'px');
 
     var intervalInputElement = $("#internalInput");
     intervalInputElement.keyup(updateInterval);
@@ -56,8 +56,24 @@ $(function () {
             //TODO: extract
             boxElement.empty();
             view.render(board, boxElement);
+            isDragging = false;
         }
     });
+    $("#box").on('mouseenter', function (event) {
+        console.log('mouse enter');
+        if (isDragging) {
+            var cellCoordinates = getCellCoordinatesByIndex(board, $(event.target).index());
+            if (board[cellCoordinates.x][cellCoordinates.y]) {
+                board[cellCoordinates.x][cellCoordinates.y] = 0
+            } else {
+                board[cellCoordinates.x][cellCoordinates.y] = 1;
+            }
+            //TODO: extract
+            boxElement.empty();
+            view.render(board, boxElement);
+        }
+    });
+
 
     function getCellCoordinatesByIndex(array, position) {
         var width = array[0].length;

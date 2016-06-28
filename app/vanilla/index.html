@@ -6,14 +6,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div>
-    Interval <input id="internalInput" type="number" value="100"> (ms) <br>
-    <br>
-    <button id="startButton">Start</button>
-    It took <span id="frameRate"></span> ms to render
-</div>
-<div id="box">
+<div class="game">
+    <div class="board" id="box"></div>
 
+    <div class="controlls">
+        <select name="" id="">
+            <option value="">Slider</option>
+            <option value="">Glider</option>
+            <option value="">Milder</option>
+        </select>
+        <button>Next</button>
+        <button id="startButton">Start</button>
+        Speed:<input id="internalInput" type="number" value="100">
+        Size:<input type="range">(40)
+        It took <span id="frameRate"></span> ms to render
+        <span class="generations">103</span>
+    </div>
 </div>
 
 <script src="../../node_modules/jquery/dist/jquery.js"></script>

@@ -1,15 +1,24 @@
-#box{
+.game{
     margin: 0 auto;
+    background-color: #7E7E7E;
 }
 
 .cell{
     display: inline-block;
     float:left;
-    width: 10px;
-    height: 10px;
-    border: 1px solid black;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #999999;
 }
 
 .cell.full{
-    background-color: black;
+    background-color: #FFFF00;
+}
+
+.generations{
+    float: right
+}
+
+body{
+    margin: 0;
 }
